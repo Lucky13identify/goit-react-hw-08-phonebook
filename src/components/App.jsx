@@ -8,8 +8,8 @@ import { fetchCurrentUser } from './redux/authRegister/authOperations';
 // import { changeFilter } from './redux/store';
 // import { fetchContacts, addContact, deleteContact } from './redux/operations';
 
-import { ContactsPage } from './Pages/contactsPage/ContactsPage';
 // import { addContact, changeFilter, deleteContact } from './redux/actions';
+// sdsdsd
 
 export function App() {
   const dispatch = useDispatch();
