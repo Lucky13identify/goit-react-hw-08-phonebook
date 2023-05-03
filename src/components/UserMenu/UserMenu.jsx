@@ -1,9 +1,9 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { logOut } from '../redux/authRegister/authOperations';
 
 export function UserMenu() {
   // const userName = useSelector(state => state.auth.user.email);
-  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  // const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   const dispatch = useDispatch();
   return (
     <div>
