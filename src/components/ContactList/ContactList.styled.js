@@ -1,19 +1,10 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.nav`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-`;
-
-export const User = styled.p`
-  margin: 0;
-`;
-
 export const ButtonUser = styled.button`
   display: inline-block;
   align-items: center;
   padding: 10px 24px;
+  margin-left: 10px;
   cursor: pointer;
   border: none;
   border-radius: 4px;

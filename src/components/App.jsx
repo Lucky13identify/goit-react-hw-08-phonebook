@@ -1,8 +1,8 @@
 // import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Header } from './Header/Header';
 import { useEffect } from 'react';
-import { fetchCurrentUser } from './redux/authRegister/authOperations';
+import { Header } from './Header/Header';
+import { fetchCurrentUser } from '../redux/authRegister/authOperations';
 // import { ContactList } from './Pages/contactList/ContactList';
 // import { ContactForm } from './Pages/сontactForm/ContactForm';
 // import { changeFilter } from './redux/store';
@@ -46,6 +46,7 @@ export function App() {
   return (
     <>
       <Header />
+
       {/* <ContactsPage /> */}
       {/* <div className="main-div">
         <h1>Phonebook</h1>

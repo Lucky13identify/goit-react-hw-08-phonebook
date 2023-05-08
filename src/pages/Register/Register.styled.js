@@ -1,16 +1,22 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.nav`
+export const Form = styled.form`
   display: flex;
-  align-items: center;
-  gap: 20px;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 20px;
 `;
 
-export const User = styled.p`
-  margin: 0;
+export const Input = styled.input`
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  width: 400px;
+  padding: 5px;
 `;
 
-export const ButtonUser = styled.button`
+export const Button = styled.button`
   display: inline-block;
   align-items: center;
   padding: 10px 24px;
@@ -25,4 +31,5 @@ export const ButtonUser = styled.button`
   :hover {
     background-color: #7b68ee;
   }
+  width: 100px;
 `;

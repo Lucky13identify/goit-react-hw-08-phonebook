@@ -1,9 +1,17 @@
 // import { createStore } from 'redux';
-import { configureStore, createSlice } from '@reduxjs/toolkit';
+import {
+  configureStore,
+  createSlice,
+  getDefaultMiddleware,
+} from '@reduxjs/toolkit';
 import { fetchContacts, addContact, deleteContact } from './operations';
-import { autsSlice } from '../redux/authRegister/authSlice';
+import { autsSlice } from './authRegister/authSlice';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+
+const customizedMiddleware = getDefaultMiddleware({
+  serializableCheck: false,
+});
 
 export const initialState = {
   contacts: {
@@ -28,7 +36,6 @@ const contactsRed = createSlice({
       state.contacts.isLoading = true;
     },
     [fetchContacts.fulfilled](state, action) {
-      console.log(action.payload);
       state.contacts.items = action.payload;
       state.contacts.isLoading = false;
     },
@@ -37,7 +44,7 @@ const contactsRed = createSlice({
     },
 
     [addContact.pending](state, action) {
-      state.contacts.contacts.isLoading = true;
+      state.contacts.isLoading = true;
     },
     [addContact.fulfilled](state, action) {
       state.contacts.isLoading = false;
@@ -71,6 +78,7 @@ export const store = configureStore({
     contacts: contactsRed.reducer,
     auth: persistReducer(authPersistConfig, autsSlice.reducer),
   },
+  middleware: customizedMiddleware,
 });
 
 export const persistor = persistStore(store);

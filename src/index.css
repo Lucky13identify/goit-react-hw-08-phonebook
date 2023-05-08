@@ -28,11 +28,17 @@ ul {
 form {
   margin-bottom: 20px;
 }
+
+button {
+  padding: 0;
+}
+
 .main-div {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+  margin-left: 40px;
   font-size: 40;
   color: #010101;
 }

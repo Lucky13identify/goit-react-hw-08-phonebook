@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ContactList } from '../contactList/ContactList';
-import { ContactForm } from '../сontactForm/ContactForm';
+import { ContactList } from '../../components/ContactList/ContactList';
+import { ContactForm } from '../../components/ContactForm/ContactForm';
 import { changeFilter } from '../../redux/store';
 import {
   fetchContacts,
@@ -11,9 +11,10 @@ import {
 
 export function ContactsPage() {
   const dispatch = useDispatch();
+  const token = useSelector(state => state.auth.token);
   const contactsArr = useSelector(state => state.contacts.contacts.items);
-  const filterValue = useSelector(state => state.filter);
-  // console.log(contactsArr);
+  const filterValue = useSelector(state => state.contacts.filter);
+  console.log(token);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -35,24 +36,22 @@ export function ContactsPage() {
     dispatch(addContact(data));
   };
 
-  const filterArr =
-    contactsArr !== undefined
-      ? contactsArr.filter(contact => {
-          // console.log(contact);
-          return contact.name.toLowerCase().includes(filterValue);
-        })
-      : '';
-
+  // const filterArr = contactsArr.filter(contact => {
+  //   console.log(contact);
+  //   return contact.name.toLowerCase().includes(filterValue);
+  // });
   return (
     <>
-      <div className="main-div">
-        <h1>Phonebook</h1>
-        <ContactForm filter={changeFilter} testName={testName} />
-        <h2>Contacts</h2>
-        <ul>
-          <ContactList arr={filterArr} deleteF={onDelete} />
-        </ul>
-      </div>
+      {
+        <div className="main-div">
+          <h1>Phonebook</h1>
+          <ContactForm filter={changeFilter} testName={testName} />
+          <h2>Contacts</h2>
+          <ul>
+            <ContactList arr={contactsArr} deleteF={onDelete} />
+          </ul>
+        </div>
+      }
     </>
   );
 }
