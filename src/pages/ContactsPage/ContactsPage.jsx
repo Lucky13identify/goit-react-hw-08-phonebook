@@ -11,10 +11,9 @@ import {
 
 export function ContactsPage() {
   const dispatch = useDispatch();
-  const token = useSelector(state => state.auth.token);
+  // const token = useSelector(state => state.auth.token);
   const contactsArr = useSelector(state => state.contacts.contacts.items);
-  const filterValue = useSelector(state => state.contacts.filter);
-  console.log(token);
+  // const filterValue = useSelector(state => state.contacts.filter);
 
   useEffect(() => {
     dispatch(fetchContacts());
