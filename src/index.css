@@ -37,7 +37,6 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
   margin-left: 40px;
   font-size: 40;
   color: #010101;
