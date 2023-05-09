@@ -28,7 +28,7 @@ export const autsSlice = createSlice({
       state.token = null;
       state.isLoggedIn = false;
     },
-    [fetchCurrentUser.fulfilled](state, action) {
+    [fetchCurrentUser.pending](state, action) {
       state.isRefreshing = true;
     },
     [fetchCurrentUser.fulfilled](state, action) {

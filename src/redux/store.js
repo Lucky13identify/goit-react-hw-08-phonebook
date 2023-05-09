@@ -1,4 +1,3 @@
-// import { createStore } from 'redux';
 import {
   configureStore,
   createSlice,
@@ -50,10 +49,6 @@ const contactsRed = createSlice({
       state.contacts.isLoading = false;
       state.contacts.items.push(action.payload);
     },
-    // [addContact.rejected](state, action) {
-    //   state.contacts.items.push(action.meta.arg);
-    // },
-
     [deleteContact.pending](state, action) {
       state.contacts.isLoading = true;
     },
@@ -82,29 +77,3 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-
-// const rootReducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case 'tasks/addContact': {
-//       return { ...state, contacts: [...state.contacts, action.payload] };
-//     }
-
-//     case 'tasks/changeFilter': {
-//       return { ...state, filter: action.payload };
-//     }
-//     case 'tasks/deleteContact': {
-//       return {
-//         ...state,
-//         contacts: state.contacts.filter(
-//           contact => contact.id !== action.payload
-//         ),
-//       };
-//     }
-//   }
-
-//   return state;
-// };
-
-// const enhancer = devToolsEnhancer();
-
-// export const store = createStore(rootReducer, enhancer);

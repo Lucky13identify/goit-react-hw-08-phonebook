@@ -4,13 +4,10 @@ import { useSelector } from 'react-redux';
 import { Login } from '../../pages/Login/Login';
 import { Register } from '../../pages/Register/Register';
 import { ContactsPage } from '../../pages/ContactsPage/ContactsPage';
-// import { lazy, Suspense } from 'react';
 import { UserMenu } from '../UserMenu/UserMenu';
 import { Head, Navigation } from './Header.styled';
 import { RestrictedRoute } from '../OptionsRoutes/RestrictedRoute';
 import { PrivateRoute } from '../OptionsRoutes/PrivateRoute';
-
-// const Contacts = lazy(() => import('../../pages/ContactsPage/ContactsPage'));
 
 const StyledLink = styled(NavLink)`
   color: black;
@@ -20,7 +17,7 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-export function Header() {
+export function MainContainer() {
   const isLoggedIn = useSelector(state => state.auth.token);
   return (
     <>
@@ -37,16 +34,14 @@ export function Header() {
           {isLoggedIn && <UserMenu />}
         </Navigation>
       </Head>
-      {/* <Suspense fallback={<div>Loading...</div>}> */}
+
       <Routes>
-        {/* <Route path="/" element={<div>Welcome back</div>} /> */}
         <Route
           path="/register"
           element={
             <RestrictedRoute component={<Register />} redirectTo="/login" />
           }
         />
-        {/* <Route path="/login" element={<Login />} /> */}
         <Route
           path="/login"
           element={
@@ -60,7 +55,6 @@ export function Header() {
           }
         />
       </Routes>
-      {/* </Suspense> */}
     </>
   );
 }

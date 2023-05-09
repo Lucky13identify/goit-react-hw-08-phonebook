@@ -11,13 +11,15 @@ import {
 
 export function ContactsPage() {
   const dispatch = useDispatch();
-  // const token = useSelector(state => state.auth.token);
+  const isRefreshed = useSelector(state => state.auth.isRefreshing);
   const contactsArr = useSelector(state => state.contacts.contacts.items);
-  // const filterValue = useSelector(state => state.contacts.filter);
+  const filterValue = useSelector(state => state.contacts.filter);
 
   useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+    if (isRefreshed) {
+      dispatch(fetchContacts());
+    }
+  }, [dispatch, isRefreshed]);
 
   const onDelete = id => {
     dispatch(deleteContact(id));
@@ -35,10 +37,10 @@ export function ContactsPage() {
     dispatch(addContact(data));
   };
 
-  // const filterArr = contactsArr.filter(contact => {
-  //   console.log(contact);
-  //   return contact.name.toLowerCase().includes(filterValue);
-  // });
+  const filterArr = contactsArr.filter(contact => {
+    console.log(contact);
+    return contact.name.toLowerCase().includes(filterValue);
+  });
   return (
     <>
       {
@@ -47,7 +49,7 @@ export function ContactsPage() {
           <ContactForm filter={changeFilter} testName={testName} />
           <h2>Contacts</h2>
           <ul>
-            <ContactList arr={contactsArr} deleteF={onDelete} />
+            <ContactList arr={filterArr} deleteF={onDelete} />
           </ul>
         </div>
       }

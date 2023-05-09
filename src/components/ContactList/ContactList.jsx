@@ -23,7 +23,7 @@ ContactList.propTypes = {
     PropTypes.shape({
       id: PropTypes.string,
       name: PropTypes.string,
-      phone: PropTypes.string,
+      number: PropTypes.string,
     })
   ),
   deleteF: PropTypes.func,

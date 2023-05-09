@@ -2,12 +2,10 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { login } from '../../redux/authRegister/authOperations';
 import { Form, Button, Input } from './Login.styled';
-// import { useNavigate } from 'react-router-dom';
 
 export function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleChange = e => {
@@ -21,7 +19,6 @@ export function Login() {
   const submitRegisterForm = e => {
     e.preventDefault();
     dispatch(login({ email, password }));
-    // navigate('/contacts');
     setEmail('');
     setPassword('');
   };
