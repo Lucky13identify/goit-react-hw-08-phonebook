@@ -11,15 +11,16 @@ import {
 
 export function ContactsPage() {
   const dispatch = useDispatch();
-  const isRefreshed = useSelector(state => state.auth.isRefreshing);
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  // const isRefreshed = useSelector(state => state.auth.isRefreshing);
   const contactsArr = useSelector(state => state.contacts.contacts.items);
   const filterValue = useSelector(state => state.contacts.filter);
 
   useEffect(() => {
-    if (isRefreshed) {
+    if (isLoggedIn) {
       dispatch(fetchContacts());
     }
-  }, [dispatch, isRefreshed]);
+  }, [dispatch, isLoggedIn]);
 
   const onDelete = id => {
     dispatch(deleteContact(id));
@@ -38,7 +39,6 @@ export function ContactsPage() {
   };
 
   const filterArr = contactsArr.filter(contact => {
-    console.log(contact);
     return contact.name.toLowerCase().includes(filterValue);
   });
   return (

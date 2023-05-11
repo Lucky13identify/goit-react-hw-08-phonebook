@@ -33,7 +33,7 @@ export function Register() {
 
   return (
     <Form onSubmit={submitRegisterForm}>
-      <label for="user-name">Name</label>
+      <label htmlFor="user-name">Name</label>
       <Input
         onChange={handleChange}
         type="name"

@@ -1,12 +1,9 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-// axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
-
 export const fetchContacts = createAsyncThunk('contacts/fetchAll', async () => {
   try {
     const { data } = await axios.get('/contacts');
-    console.log(data);
     return data;
   } catch (e) {
     console.log(e);

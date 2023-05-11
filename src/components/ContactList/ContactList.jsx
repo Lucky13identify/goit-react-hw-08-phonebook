@@ -4,7 +4,6 @@ import { ButtonUser } from './ContactList.styled';
 
 export class ContactList extends Component {
   render() {
-    console.log(this.props.arr);
     return this.props.arr
       ? this.props.arr.map(({ id, name, number }) => (
           <li key={id}>

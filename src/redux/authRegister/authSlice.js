@@ -22,6 +22,7 @@ export const autsSlice = createSlice({
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
+      state.isRefreshing = true;
     },
     [logOut.fulfilled](state) {
       state.user = { name: null, email: null };
